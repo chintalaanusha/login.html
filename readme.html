@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+    
+    <!-- Login Form -->
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <!-- Reminder Form -->
+    <form id="reminderForm">
+        <label for="reminder">Set Reminder:</label>
+        <input type="text" id="reminder" name="reminder">
+        <input type="submit" value="Set Reminder">
+    </form>
+
+    <!-- View All Reminders -->
+    <div id="reminders">
+        <h2>Reminders</h2>
+        <ul id="reminderList">
+            <!-- Reminder items will appear here -->
+        </ul>
+    </div>
+
+    <script>
+        // JavaScript code for handling form submission and reminders
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting (for demonstration purposes)
+            
+            // Get the entered username and password
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // You can add your login logic here
+            // For simplicity, let's just display a message
+            alert("Logged in as: " + username);
+        });
+
+        document.getElementById("reminderForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting (for demonstration purposes)
+            
+            // Get the entered reminder
+            var reminder = document.getElementById("reminder").value;
+
+            // Create a new list item for the reminder
+            var reminderItem = document.createElement("li");
+            reminderItem.textContent = reminder;
+
+            // Append the reminder to the list
+            document.getElementById("reminderList").appendChild(reminderItem);
+
+            // Clear the input field
+            document.getElementById("reminder").value = "";
+        });
+    </script>
+</body>
+</html>
